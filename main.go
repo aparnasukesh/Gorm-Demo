@@ -32,14 +32,14 @@ func main() {
 	db.AutoMigrate(&Task{})
 
 	// Define API routes
+	r.POST("/tasks", createTask)
 	r.GET("/tasks", getTasks)
 	r.GET("/tasks/:id", getTask)
-	r.POST("/tasks", createTask)
 	r.PUT("/tasks/:id", updateTask)
 	r.DELETE("/tasks/:id", deleteTask)
 
 	// Start the Gin server
-	r.Run(":8080")
+	r.Run()
 }
 
 // Get all tasks
